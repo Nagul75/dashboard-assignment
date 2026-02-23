@@ -1,14 +1,11 @@
-import * as React from "react"
+import { Outlet } from "react-router-dom"
 
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "./ui/sidebar"
 import { Separator } from "./ui/separator"
 import AppSidebar from "./sidebar"
 
-type LayoutProps = {
-    children: React.ReactNode
-}
 
-function Layout({children}: LayoutProps) {
+function Layout() {
     return(
         <SidebarProvider>
             <AppSidebar/>
@@ -19,7 +16,7 @@ function Layout({children}: LayoutProps) {
                     <h2 className="scroll-m-20 pb-2 text-2xl font-semibold tracking-tight first:mt-0">Sales Analytics</h2>
                 </header>
                 <main className="flex-1 overflow-auto p-4">
-                    {children}        
+                    <Outlet />
                 </main>
             </SidebarInset>
         </SidebarProvider>
